@@ -1,10 +1,6 @@
 #!/usr/local/opt/python/bin/python2.7
 
 __author__ = "ccheever"
-__doc__ = """
-A barebones bunny1 server that should be easy to modify for your own use
-"""
-__date__ = "Thu Feb 12 09:05:40 PST 2009"
 
 import urlparse
 
@@ -18,11 +14,12 @@ from bunny1 import dont_expose
 from bunny1 import escape
 from bunny1 import HTML
 
+
 class MyCommands(bunny1.Bunny1Commands):
 
-    def your_command_here(self, arg):
-        """this is where a description of your command goes"""
-        return "http://www.example.com/?" % qp(arg)
+    def ps(self, arg):
+        """go to PS service desk"""
+        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
 
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
