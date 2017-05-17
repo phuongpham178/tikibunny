@@ -70,7 +70,7 @@ class MyCommands(bunny1.Bunny1Commands):
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
     @dont_expose
-    def _help_html(self, examples=None, name="bunny1"):
+    def _help_html(self, examples=None, name="bunnytiki"):
         """the help page that gets shown if no command or 'help' is entered"""
 
         import random
@@ -80,10 +80,10 @@ class MyCommands(bunny1.Bunny1Commands):
 
         if not examples:
             examples = [
-                    "g phpsh",
-                    "fbpbz 1737",
-                    "wikinvest 2008 Financial Crisis",
-                    "popular",
+                    "ps",
+                    "jira",
+                    "docs",
+                    "debug",
                     "ya what is the meaning of life?",
                     "list Facebook",
                     "fbs john",
@@ -152,7 +152,7 @@ small {
 <p>Or you can see <a href="?list">a list of shortcuts you can use</a> with this example server.</p>
 
 <h3>Running Your Own bunny1 Server</h3>
-<ul>Download the <a href="http://github.com/ccheever/bunny1/">source code</a> for the project.  Or if you use setuptools, you can just <code>easy_install bunny1</code>.</ul>
+<ul>Download the <a href="https://github.com/phuongpham178/tikibunny">source code</a> for the project.  Or if you use setuptools, you can just <code>easy_install bunny1</code>.</ul>
 
 <ul>To run an example server, just run <code>b1_example.py --port=8080</code>.</ul>
 
