@@ -70,7 +70,7 @@ class MyCommands(bunny1.Bunny1Commands):
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
     @dont_expose
-    def _help_html(self, examples=None, name="bunnytiki"):
+    def _help_html(self, examples=None, name="tikibunny"):
         """the help page that gets shown if no command or 'help' is entered"""
 
         import random
@@ -185,7 +185,6 @@ small {
 
 </body>
 </html>
-
         """
 
 
