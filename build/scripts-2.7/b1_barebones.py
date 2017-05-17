@@ -13,6 +13,7 @@ from bunny1 import expose
 from bunny1 import dont_expose
 from bunny1 import escape
 from bunny1 import HTML
+import os
 
 
 class MyCommands(bunny1.Bunny1Commands):
@@ -139,7 +140,7 @@ small {
 </style>
 </head>
 <body>
-<h1 class="header-placeholder"><img class="header" src="header_tiki.gif" /></h1>
+<h1 class="header-placeholder"><img class="header" src="tiki_header.gif" /></h1>
 
 <p>""" + name + """ is a tool that lets you write smart bookmarks in python and then share them across all your browsers and with a group of people or the whole world.  It was developed at <a href="http://www.facebook.com/">Facebook</a> and is widely used there.</p>
 
@@ -192,10 +193,11 @@ class MyBunny(bunny1.Bunny1):
         bunny1.Bunny1.__init__(self, MyCommands(), bunny1.Bunny1Decorators())
 
     @cherrypy.expose
-    def header_gif(self):
+    def tiki_header_gif(self):
         """the banner GIF for the bunny1 homepage 123"""
         cherrypy.response.headers["Content-Type"] = "image/gif"
-        return bunny1.bunny1_file("header_tiki.gif")
+        return file("header_tiki.gif").read()
+        # return bunny1.bunny1_file("header_tiki.gif")
 if __name__ == "__main__":
     bunny1.main(MyBunny())
 
