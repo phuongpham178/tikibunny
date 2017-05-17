@@ -193,7 +193,7 @@ class MyBunny(bunny1.Bunny1):
 
     @cherrypy.expose
     def header_gif(self):
-        """the banner GIF for the bunny1 homepage"""
+        """the banner GIF for the bunny1 homepage 123"""
         cherrypy.response.headers["Content-Type"] = "image/gif"
         return bunny1.bunny1_file("header_tiki.gif")
 if __name__ == "__main__":
