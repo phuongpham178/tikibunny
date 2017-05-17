@@ -1,10 +1,6 @@
 #!/usr/local/opt/python/bin/python2.7
 
 __author__ = "ccheever"
-__doc__ = """
-A barebones bunny1 server that should be easy to modify for your own use
-"""
-__date__ = "Thu Feb 12 09:05:40 PST 2009"
 
 import urlparse
 
@@ -18,19 +14,61 @@ from bunny1 import dont_expose
 from bunny1 import escape
 from bunny1 import HTML
 
+
 class MyCommands(bunny1.Bunny1Commands):
 
-    def your_command_here(self, arg):
-        """this is where a description of your command goes"""
-        return "http://www.example.com/?" % qp(arg)
+    def ps(self, arg):
+        """go to PS service desk"""
+        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
+
+    def jira(self, arg):
+        """go to description and details of a JIRA ticket"""
+        if arg:
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27/%s" % qp(arg)
+        else:
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27"
+
+    def data(self, arg):
+        """go to channel to request DA tasks"""
+        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5/group/67"
+
+    def docs(self, arg):
+        """go to Tiki Docs (Confluence)"""
+        return "https://docs.tiki.com.vn/"
+
+    def debug(self, arg):
+        """go to debugger tool"""
+        if arg:
+            return "http://backend.tiki.vn/tool/product_debugger?q=%s" % qp(arg)
+        else:
+            return "http://backend.tiki.vn/tool/product_debugger"
+
+    def couponr(self, arg):
+        """reset coupon of a cancelled order"""
+        if arg: 
+            return "http://backend.tiki.vn/tool/product_support?order-code=%s" % qp(arg)
+        else:
+            return "http://backend.tiki.vn/tool/product_support"
+
+    def pck(self, arg):
+        if arg:
+            return "http://erp.tiki.vn/#id=%s&view_type=form&model=stock.picking&action=318" % qp(arg)
+        else: 
+            return "http://erp.tiki.vn/#page=0&limit=80&view_type=list&model=stock.picking&menu_id=274&action=318"
+
+    def rma(self, arg):
+        if arg:
+            return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/%s" % qp(arg)
+        else: 
+            return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
+
+
 
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
 
-    # ... and you can add other commands by just defining more methods
-    # in this class here
 
 class MyBunny(bunny1.Bunny1):
     def __init__(self):
