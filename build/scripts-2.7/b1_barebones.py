@@ -21,12 +21,19 @@ class MyCommands(bunny1.Bunny1Commands):
         """go to PS service desk"""
         return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
 
+    def jira(self, arg):
+        """go to description and details of a JIRA ticket"""
+        if arg:
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27/" + qp(arg)
+        else:
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27"
+
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
 
-    # ... and you can add other commands by just defining more methods
+
     # in this class here
 
 class MyBunny(bunny1.Bunny1):
