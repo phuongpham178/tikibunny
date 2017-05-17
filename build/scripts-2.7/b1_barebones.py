@@ -24,17 +24,51 @@ class MyCommands(bunny1.Bunny1Commands):
     def jira(self, arg):
         """go to description and details of a JIRA ticket"""
         if arg:
-            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27/" + qp(arg)
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27/%s" % qp(arg)
         else:
             return "https://jira.tiki.com.vn/projects/PS/queues/custom/27"
+
+    def data(self, arg):
+        """go to channel to request DA tasks"""
+        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5/group/67"
+
+    def docs(self, arg):
+        """go to Tiki Docs (Confluence)"""
+        return "https://docs.tiki.com.vn/"
+
+    def debug(self, arg):
+        """go to debugger tool"""
+        if arg:
+            return "http://backend.tiki.vn/tool/product_debugger?q=%s" % qp(arg)
+        else:
+            return "http://backend.tiki.vn/tool/product_debugger"
+
+    def couponr(self, arg):
+        """reset coupon of a cancelled order"""
+        if arg: 
+            return "http://backend.tiki.vn/tool/product_support?order-code=%s" % qp(arg)
+        else:
+            return "http://backend.tiki.vn/tool/product_support"
+
+    def pck(self, arg):
+        if arg:
+            return "http://erp.tiki.vn/#id=%s&view_type=form&model=stock.picking&action=318" % qp(arg)
+        else: 
+            return "http://erp.tiki.vn/#page=0&limit=80&view_type=list&model=stock.picking&menu_id=274&action=318"
+
+    def rma(self, arg):
+        if arg:
+            return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/%s" % qp(arg)
+        else: 
+            return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
+
+
 
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
 
-
-    # in this class here
 
 class MyBunny(bunny1.Bunny1):
     def __init__(self):
