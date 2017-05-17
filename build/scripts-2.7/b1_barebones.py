@@ -186,6 +186,12 @@ small {
 </html>
         """
 
+    @cherrypy.expose
+    def header_gif(self):
+        """the banner GIF for the bunny1 homepage"""
+        cherrypy.response.headers["Content-Type"] = "image/gif"
+        return bunny1.bunny1_file("header_tiki.gif")
+
 
 class MyBunny(bunny1.Bunny1):
     def __init__(self):
