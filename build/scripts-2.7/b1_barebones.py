@@ -242,7 +242,7 @@ class MyBunny(bunny1.Bunny1):
         cherrypy.response.headers["Content-Type"] = "image/gif"
         return file("header_tiki.gif").read()
         # return bunny1.bunny1_file("header_tiki.gif")
-    def 
+         
 if __name__ == "__main__":
     bunny1.main(MyBunny())
 
