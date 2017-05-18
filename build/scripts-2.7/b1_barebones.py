@@ -24,7 +24,17 @@ class MyCommands(bunny1.Bunny1Commands):
 
     def ps(self, arg):
         """go to PS service desk"""
-        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
+        if arg:
+            return "https://jira.tiki.com.vn/projects/PS/queues/custom/27/PS-%s" % qp(arg)
+        else:
+            return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
+
+    def ops(self, arg):
+        """go to OPS ticket"""
+        if arg:
+            return "https://jira.tiki.com.vn/browse/OPS-%s" % qp(arg)
+        else:
+            return "https://jira.tiki.com.vn/secure/RapidBoard.jspa?rapidView=30&projectKey=OPS"
 
     def support(self, arg):
         """go to PS service desk"""
@@ -113,7 +123,7 @@ class MyCommands(bunny1.Bunny1Commands):
         if not examples:
             examples = [
                     "ps",
-                    "jira",
+                    "jira PS-6872",
                     "docs",
                     "debug"
                     ]
@@ -175,15 +185,14 @@ small {
 <h3>Bạn muốn tạo server riêng cho Bunny của bạn</h3>
 <ul>Download <a href="https://github.com/phuongpham178/tikibunny">source code</a> cho project của bạn.  Hoặc nếu bạn dùng setuptools, bạn có thể <code>easy_install bunny1</code>.</ul>
 
-<ul>Để chạy một server ví dụ, just run <code>b1_example.py --port=8080</code>.</ul>
-
-<ul>Các thông tin hướng dẫn khác để config và chạy server riêng của bạn có thể tìm ở <a href=""" + '"' + self._base_url() + """?readme">README</a>.  Bạn có thể dùng python để viết thêm commands cho project của bạn.</ul>
+<ul>Để chạy một server ví dụ, bạn có thể chạy  <code>b1_example.py --port=8080</code>.</ul>
 
 <h3>Cài đặt trên Google Chrome</h3>
-<ul>Choose <code>Options</code> from the wrench menu to the right of the location bar in Chrome</ul>
-<ul>Under the section <code>Default Search</code>, click the <code>Manage</code> button.</ul>
-<ul>Click the <code>Add</code> button and then fill in the fields name, keyword, and URL with <code>""" + name + """</code>, <code>b1</code>, and <code>""" + self._base_url() + """?</code>.  Hit <code>OK</code> and then select """ + name + """ from the list of search engines and hit the <code>Make Default</code> button to make """ + name + """ your default search engine.</ul>
-<ul>Type <code>list</code> into your location bar to see a list of commands you can use.</ul>
+<ul>Chọn <code>Options</code> từ góc phải trên thanh menu bar của Chrome</ul>
+<ul>Ở phần <code>Default Search</code>, chọn nút <code>Manage</code>.</ul>
+<ul>Tìm dòng có tên <code>""" + name + """</code> và keyword <code>phuongpham.info</code> để đặt làm mặc định (default)</ul>
+<ul>Bạn có thể thay đổi phần keyword từ <code>phuongpham.info</code> thành <code>bunny</code> hoặc <code>tiki</code> để làm phím tắt cho search engine này</ul>
+<ul>Gõ <code>list</code> vào thanh địa chỉ để thấy được danh sách các commands bạn có thể xài.</ul>
 
 <h3>Cài đặt trên Firefox</h3>
 <ul>Type <code>about:config</code> into your location bar in Firefox.</ul>
@@ -233,6 +242,7 @@ class MyBunny(bunny1.Bunny1):
         cherrypy.response.headers["Content-Type"] = "image/gif"
         return file("header_tiki.gif").read()
         # return bunny1.bunny1_file("header_tiki.gif")
+    def 
 if __name__ == "__main__":
     bunny1.main(MyBunny())
 
