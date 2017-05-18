@@ -64,7 +64,20 @@ class MyCommands(bunny1.Bunny1Commands):
         else: 
             return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
 
+    def fb(self, arg):
+        """search www.facebook.com or go there"""
+        if arg:
+            return "http://www.facebook.com/s.php?q=%s&init=q" % qp(arg)
+        else:
+            return "http://www.facebook.com/"
 
+    def g(self, arg):
+        """Search with google"""
+        return "http://www.google.com/search?q=%s" % qp(arg)
+
+    def quora(self, arg):
+        """Search with quora"""
+        return "http://www.quora.com/search?q=%s" % qp(arg)
 
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
@@ -73,6 +86,17 @@ class MyCommands(bunny1.Bunny1Commands):
     @dont_expose
     def _help_html(self, examples=None, name="tikibunny"):
         """the help page that gets shown if no command or 'help' is entered"""
+
+    @dont_expose
+    def _opensearch_metadata(self):
+    """metadata about this server"""
+    return {
+            "short_name": "tikibunny",
+            "description": "tikibunny",
+            "template": self._my_url() + "?{searchTerms}",
+        }
+
+bunny1.Bunny1Commands._opensearch_metadata= _opensearch_metadata
 
         import random
 
@@ -148,7 +172,10 @@ small {
 <ul>Các thông tin hướng dẫn khác để config và chạy server riêng của bạn có thể tìm ở <a href=""" + '"' + self._base_url() + """?readme">README</a>.  Bạn có thể dùng python để viết thêm commands cho project của bạn.</ul>
 
 <h3>Cài đặt trên Google Chrome</h3>
-<ul>Choose <code>Options</code> from the wrench menu to the right of the location bar in Chrome, then under the section <code>Default Search</code>, click the <code>Manage</code> button.  Click the <code>Add</code> button and then fill in the fields name, keyword, and URL with <code>""" + name + """</code>, <code>b1</code>, and <code>""" + self._base_url() + """?</code>.  Hit <code>OK</code> and then select """ + name + """ from the list of search engines and hit the <code>Make Default</code> button to make """ + name + """ your default search engine.  Type <code>list</code> into your location bar to see a list of commands you can use.</ul>
+<ul>Choose <code>Options</code> from the wrench menu to the right of the location bar in Chrome</ul>
+<ul>Under the section <code>Default Search</code>, click the <code>Manage</code> button.</ul>
+<ul>Click the <code>Add</code> button and then fill in the fields name, keyword, and URL with <code>""" + name + """</code>, <code>b1</code>, and <code>""" + self._base_url() + """?</code>.  Hit <code>OK</code> and then select """ + name + """ from the list of search engines and hit the <code>Make Default</code> button to make """ + name + """ your default search engine.</ul>
+<ul>Type <code>list</code> into your location bar to see a list of commands you can use.</ul>
 
 <h3>Cài đặt trên Firefox</h3>
 <ul>Type <code>about:config</code> into your location bar in Firefox.</ul>
