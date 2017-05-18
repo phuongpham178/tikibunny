@@ -84,6 +84,12 @@ class MyCommands(bunny1.Bunny1Commands):
         else: 
             return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
 
+    def erp(self, *args):
+        if args:
+            return "http://erp.tiki.vn/#id=%s&view_type=form&model=%s" % qp(*args)
+        else:
+            return "http://erp.tiki.vn/"
+
     def fb(self, arg):
         """search www.facebook.com or go there"""
         if arg:
@@ -242,7 +248,7 @@ class MyBunny(bunny1.Bunny1):
         cherrypy.response.headers["Content-Type"] = "image/gif"
         return file("header_tiki.gif").read()
         # return bunny1.bunny1_file("header_tiki.gif")
-         
+
 if __name__ == "__main__":
     bunny1.main(MyBunny())
 
