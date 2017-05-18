@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/local/opt/python/bin/python2.7
 
 __author__ = "ccheever"
