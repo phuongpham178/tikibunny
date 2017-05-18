@@ -83,19 +83,7 @@ class MyCommands(bunny1.Bunny1Commands):
                     "ps",
                     "jira",
                     "docs",
-                    "debug",
-                    "ya what is the meaning of life?",
-                    "list Facebook",
-                    "fbs john",
-                    "php array_merge",
-                    "wp FBML",
-                    "fb mark zuckerberg",
-                    "gmaps 285 Hamilton Ave, Palo Alto, CA 94301",
-                    "gimg bisu",
-                    "rickroll",
-                    "yt i'm cool sushi654 yeah",
-                    "y osteria palo alto",
-                    "live james harrison",
+                    "debug"
                     ]
 
         return """
@@ -142,37 +130,37 @@ small {
 <body>
 <h1 class="header-placeholder"><img class="header" src="tiki_header.gif" /></h1>
 
-<p>""" + name + """ is a tool that lets you write smart bookmarks in python and then share them across all your browsers and with a group of people or the whole world.  It was developed at <a href="http://www.facebook.com/">Facebook</a> and is widely used there.</p>
+<p>""" + name + """ là một công cụ để bạn có thể dễ dàng tạo bookmark thông minh, được viết bằng python và có thể sử dụng các bookmarks này cho các trình duyệt web. Source code có thể được chia sẻ với tất cả các programmers khác. Công cụ này lần đầu tiên được phát triển tại <a href="http://www.facebook.com/">Facebook</a> và đã được sử dụng chính thức rộng rãi.</p>
 
 <form method="GET">
 <p style="width: 820px; text-align: center;"><input class="test-query-input" id="b1cmd" type="text" name="___" value=""" + '"' + escape(random.choice(examples)) + '"' + """/> <input type="submit" value=" try me "/></p>
 
-<p>Type something like """ + " or ".join(["""<a href="#" onclick="return false;"><code onclick="document.getElementById('b1cmd').value = this.innerHTML; return true;">""" + x + "</code></a>" for x in examples]) + """.</p>
+<p>Bạn có thể gõ thử """ + " or ".join(["""<a href="#" onclick="return false;"><code onclick="document.getElementById('b1cmd').value = this.innerHTML; return true;">""" + x + "</code></a>" for x in examples]) + """.</p>
 
-<p>Or you can see <a href="?list">a list of shortcuts you can use</a> with this example server.</p>
+<p>Hoặc bạn có thể xem <a href="?list">list những câu lệnh bookmarks</a> đang có sẵn trong server này.</p>
 
-<h3>Running Your Own bunny1 Server</h3>
-<ul>Download the <a href="https://github.com/phuongpham178/tikibunny">source code</a> for the project.  Or if you use setuptools, you can just <code>easy_install bunny1</code>.</ul>
+<h3>Bạn muốn tạo server riêng cho Bunny của bạn</h3>
+<ul>Download <a href="https://github.com/phuongpham178/tikibunny">source code</a> cho project của bạn.  Hoặc nếu bạn dùng setuptools, bạn có thể <code>easy_install bunny1</code>.</ul>
 
-<ul>To run an example server, just run <code>b1_example.py --port=8080</code>.</ul>
+<ul>Để chạy một server ví dụ, just run <code>b1_example.py --port=8080</code>.</ul>
 
-<ul>More detailed instructions for configuring and running your own server can be found in the <a href=""" + '"' + self._base_url() + """?readme">README</a>.  You can add your own commands with just a few lines of python.</ul>
+<ul>Các thông tin hướng dẫn khác để config và chạy server riêng của bạn có thể tìm ở <a href=""" + '"' + self._base_url() + """?readme">README</a>.  Bạn có thể dùng python để viết thêm commands cho project của bạn.</ul>
 
-<h3>Installing on Firefox</h3>
+<h3>Cài đặt trên Google Chrome</h3>
+<ul>Choose <code>Options</code> from the wrench menu to the right of the location bar in Chrome, then under the section <code>Default Search</code>, click the <code>Manage</code> button.  Click the <code>Add</code> button and then fill in the fields name, keyword, and URL with <code>""" + name + """</code>, <code>b1</code>, and <code>""" + self._base_url() + """?</code>.  Hit <code>OK</code> and then select """ + name + """ from the list of search engines and hit the <code>Make Default</code> button to make """ + name + """ your default search engine.  Type <code>list</code> into your location bar to see a list of commands you can use.</ul>
+
+<h3>Cài đặt trên Firefox</h3>
 <ul>Type <code>about:config</code> into your location bar in Firefox.</ul>
 <ul>Set the value of keyword.URL to be <code>""" + self._base_url() + """?</code></ul>
 <ul>Make sure you include the <code>http://</code> at the beginning and the <code>?</code> at the end.</ul>
 <ul>Now, type <code>list</code> or <code>wp FBML</code> into your location bar and hit enter.</ul>
 <ul>Also, if you are a Firefox user and find bunny1 useful, you should check out <a href="http://labs.mozilla.com/projects/ubiquity/">Ubiquity</a>.</ul>
 
-<h3>Installing on Safari</h3>
+<h3>Cài đặt trên Safari</h3>
 <ul>Drag this bookmarklet [""" + bookmarklet(name) + """] to your bookmarks bar.</ul>
 <ul>Now, visit the bookmarklet, and in the box that pops up, type <code>list</code> or <code>g facebook comments widget video</code> and hit enter.</ul>
 <ul>In Safari, one thing you can do is make the bookmarklet the leftmost bookmark in your bookmarks bar, and then use <code>Command-1</code> to get to it.</ul>
 <ul>Alternatively, you can get the location bar behavior of Firefox in Safari 3 by using the <a href="http://purefiction.net/keywurl/">keywurl</a> extension.</ul>
-
-<h3>Installing on Google Chrome</h3>
-<ul>Choose <code>Options</code> from the wrench menu to the right of the location bar in Chrome, then under the section <code>Default Search</code>, click the <code>Manage</code> button.  Click the <code>Add</code> button and then fill in the fields name, keyword, and URL with <code>""" + name + """</code>, <code>b1</code>, and <code>""" + self._base_url() + """?</code>.  Hit <code>OK</code> and then select """ + name + """ from the list of search engines and hit the <code>Make Default</code> button to make """ + name + """ your default search engine.  Type <code>list</code> into your location bar to see a list of commands you can use.</ul>
 
 <h3>Installing on Internet Explorer</h3>
 <ul>There aren't any great solutions for installing """ + name + """ on IE, but two OK solutions are:</ul>
@@ -180,7 +168,8 @@ small {
 <ul>Or, in IE7+, you can click the down arrow on the search bar to the right of your location bar and choose the starred """ + name + """ option there.  This will install the bunny OpenSearch plugin in your search bar.</ul>
 
 <hr />
-<small>bunny1 was originally written by <a href="http://www.facebook.com/people/Charlie-Cheever/1160">Charlie Cheever</a> at <a href="http://developers.facebook.com/opensource.php">Facebook</a> and is maintained by him, <a href="http://www.facebook.com/people/David-Reiss/626221207">David Reiss</a>, Eugene Letuchy, and <a href="http://www.facebook.com/people/Daniel-Corson/708561">Dan Corson</a>.  Julie Zhuo drew the bunny logo.</small>
+<small>bunny1 gốc được viết bởi <a href="http://www.facebook.com/people/Charlie-Cheever/1160">Charlie Cheever</a> ở <a href="http://developers.facebook.com/opensource.php">Facebook</a> và được cập nhật, cải tiến và bảo hành bởi <a href="http://www.facebook.com/people/David-Reiss/626221207">David Reiss</a>, Eugene Letuchy, và <a href="http://www.facebook.com/people/Daniel-Corson/708561">Dan Corson</a>.  Julie Zhuo vẽ logo bunny.</small>
+<small>TikiBunny được viết lại bởi Phương Phạm (PS) và hỗ trợ developped bởi Sơn Phạm (Dev Ops)</small>
 
 
 </body>
