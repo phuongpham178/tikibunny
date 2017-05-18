@@ -85,10 +85,8 @@ class MyCommands(bunny1.Bunny1Commands):
             return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
 
     def erp(id, model):
-        if arg:
             return "http://erp.tiki.vn/#id=%s&view_type=form&model=%s" %(id, model)
-        else:
-            return "http://erp.tiki.vn/"
+
 
     def fb(self, arg):
         """search www.facebook.com or go there"""
