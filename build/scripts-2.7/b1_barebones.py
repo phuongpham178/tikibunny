@@ -16,7 +16,6 @@ from bunny1 import escape
 from bunny1 import HTML
 import os
 
-
 class MyCommands(bunny1.Bunny1Commands):
 
     def ps(self, arg):
@@ -84,20 +83,9 @@ class MyCommands(bunny1.Bunny1Commands):
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
     @dont_expose
-    def _opensearch_metadata(self):
-    """metadata about this server"""
-        return {
-            "short_name": "tikibunny",
-            "description": "tikibunny",
-            "template": self._my_url() + "?{searchTerms}",
-        }
-
-    bunny1.Bunny1Commands._opensearch_metadata= _opensearch_metadata
-    
-    @dont_expose
     def _help_html(self, examples=None, name="tikibunny"):
         """the help page that gets shown if no command or 'help' is entered"""
-         
+
         import random
 
         def bookmarklet(name):
@@ -112,6 +100,7 @@ class MyCommands(bunny1.Bunny1Commands):
                     ]
 
         return """
+
 <html>
 <head>
 <title>tikibunny</title>
@@ -197,13 +186,23 @@ small {
 
 <hr />
 <small>bunny1 gốc được viết bởi <a href="http://www.facebook.com/people/Charlie-Cheever/1160">Charlie Cheever</a> ở <a href="http://developers.facebook.com/opensource.php">Facebook</a> và được cập nhật, cải tiến và bảo hành bởi <a href="http://www.facebook.com/people/David-Reiss/626221207">David Reiss</a>, Eugene Letuchy, và <a href="http://www.facebook.com/people/Daniel-Corson/708561">Dan Corson</a>.  Julie Zhuo vẽ logo bunny.</small>
-<small>TikiBunny được viết lại bởi Phương Phạm (PS) và hỗ trợ developped bởi Sơn Phạm (Dev Ops)</small>
+<br><small>TikiBunny được viết lại bởi Phương Phạm (PS) và hỗ trợ developped bởi Sơn Phạm (Dev Ops).</small></br>
 
 
 </body>
 </html>
         """
 
+    @dont_expose
+    def _opensearch_metadata(self):
+        return {
+            "short_name": "tikibunny",
+            "description": "tikibunny",
+            "template": self._my_url() + "?{searchTerms}",
+        }
+
+    bunny1.Bunny1Commands._opensearch_metadata= _opensearch_metadata
+    
 
 class MyBunny(bunny1.Bunny1):
     def __init__(self):
