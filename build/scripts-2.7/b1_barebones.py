@@ -18,9 +18,17 @@ import os
 
 class MyCommands(bunny1.Bunny1Commands):
 
+    def vui(self, arg):
+        """go to 9gag Hot"""
+        return "https://9gag.com/hot"
+
     def ps(self, arg):
         """go to PS service desk"""
         return "https://jira.tiki.com.vn/servicedesk/customer/portal/5" 
+
+    def support(self, arg):
+        """go to PS service desk"""
+        return "https://jira.tiki.com.vn/servicedesk/customer/portal/5"
 
     def jira(self, arg):
         """go to description and details of a JIRA ticket"""
@@ -34,11 +42,14 @@ class MyCommands(bunny1.Bunny1Commands):
         return "https://jira.tiki.com.vn/servicedesk/customer/portal/5/group/67"
 
     def docs(self, arg):
-        """go to Tiki Docs (Confluence)"""
-        return "https://docs.tiki.com.vn/"
+        """go to Tiki Docs (Confluence) or search on Tiki Docs"""
+        if arg:
+            return "https://docs.tiki.com.vn/dosearchsite.action?queryString=%s" % qp(arg)
+        else:
+            return "https://docs.tiki.com.vn/"
 
     def debug(self, arg):
-        """go to debugger tool"""
+        """go to debugger tool with a SKU/productID"""
         if arg:
             return "http://backend.tiki.vn/tool/product_debugger?q=%s" % qp(arg)
         else:
@@ -77,6 +88,14 @@ class MyCommands(bunny1.Bunny1Commands):
     def quora(self, arg):
         """Search with quora"""
         return "http://www.quora.com/search?q=%s" % qp(arg)
+
+    def meeting(self, arg):
+        """go to Tiki Rooms booking tool"""
+        return "http://meetingrooms.tiki.com.vn/"
+
+    def nct(self, arg):
+        """search with NhacCuaTui"""
+        return "http://www.nhaccuatui.com/tim-kiem?q=%s" % qp(arg)
 
     def another_command(self, arg):
         """this example will send content to the browser rather than redirecting"""
