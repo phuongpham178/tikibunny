@@ -84,20 +84,20 @@ class MyCommands(bunny1.Bunny1Commands):
         raise HTML("some <u>html</u> " + escape("with some <angle brackets>"))
 
     @dont_expose
-    def _help_html(self, examples=None, name="tikibunny"):
-        """the help page that gets shown if no command or 'help' is entered"""
-
-    @dont_expose
     def _opensearch_metadata(self):
     """metadata about this server"""
-    return {
+        return {
             "short_name": "tikibunny",
             "description": "tikibunny",
             "template": self._my_url() + "?{searchTerms}",
         }
 
-bunny1.Bunny1Commands._opensearch_metadata= _opensearch_metadata
-
+    bunny1.Bunny1Commands._opensearch_metadata= _opensearch_metadata
+    
+    @dont_expose
+    def _help_html(self, examples=None, name="tikibunny"):
+        """the help page that gets shown if no command or 'help' is entered"""
+         
         import random
 
         def bookmarklet(name):
