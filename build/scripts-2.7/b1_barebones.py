@@ -84,7 +84,8 @@ class MyCommands(bunny1.Bunny1Commands):
         else: 
             return "http://admin.tiki.vn/index.php/rmaadmin/adminhtml_rma/edit/id/"
 
-    def erp(id, model):
+    def erp(id, model, *args):
+        if args:
             return "http://erp.tiki.vn/#id=%s&view_type=form&model=%s" %(id, model)
 
 
