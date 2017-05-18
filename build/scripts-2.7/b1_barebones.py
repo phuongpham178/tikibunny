@@ -90,7 +90,7 @@ class MyCommands(bunny1.Bunny1Commands):
         return """
 <html>
 <head>
-<title>bunny1</title>
+<title>tikibunny</title>
 """ + self._opensearch_link() + """
 <style>
 BODY {
