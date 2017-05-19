@@ -219,7 +219,7 @@ small {
 
 <hr />
 <small>bunny1 gốc được viết bởi <a href="http://www.facebook.com/people/Charlie-Cheever/1160">Charlie Cheever</a> ở <a href="http://developers.facebook.com/opensource.php">Facebook</a> và được cập nhật, cải tiến và bảo hành bởi <a href="http://www.facebook.com/people/David-Reiss/626221207">David Reiss</a>, Eugene Letuchy, và <a href="http://www.facebook.com/people/Daniel-Corson/708561">Dan Corson</a>.  Julie Zhuo vẽ logo bunny.</small>
-<br><small>TikiBunny được viết lại bởi Phương Phạm (PS) và hỗ trợ developped bởi Sơn Phạm (Dev Ops).</small></br>
+<br><small>TikiBunny được viết lại bởi Phương Phạm (PS) và hỗ trợ developed bởi Sơn Phạm (Dev Ops).</small></br>
 
 
 </body>
